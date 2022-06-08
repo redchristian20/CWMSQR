@@ -51,8 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-/*
+
 $route['default_controller'] = 'main';
+
+
+/*
 $route['adduser'] = 'main/adduser'; 
 $route['add'] = 'main/add'; 
 
