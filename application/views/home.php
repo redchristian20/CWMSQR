@@ -35,10 +35,11 @@
 </style>
 
 <body>
-    <a href="">Login</a>
-    <a href="">Register</a>
-    <a href="">Workshops</a>
-    <a href="">Add workshop</a>
+    <a href="login">Login</a>
+    <a href="register">Register</a>
+    <a href="workshops">Workshops</a>
+    <a href="add_workshops">Add workshop</a>
+    
     
 
 
