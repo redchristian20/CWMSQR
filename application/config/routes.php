@@ -53,7 +53,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route['default_controller'] = 'main';
+$route['register'] = 'main/register'; 
+$route['register_user'] = 'main/register_user'; 
 
+
+$route['login'] = 'main/login'; 
+$route['login_user'] = 'main/login_user'; 
 
 /*
 $route['adduser'] = 'main/adduser'; 
