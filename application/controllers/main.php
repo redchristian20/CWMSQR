@@ -6,13 +6,17 @@ class main extends CI_Controller {
     //Function that loads the homepage
 	public function index()
 	{
-		$this->load->view('home');
+		$this->load->view('header');
+        $this->load->view('home');
+        $this->load->view('footer');
 	}
 
     //Function that loads the register page
     public function register()
     {
+        $this->load->view('header');
         $this->load->view('register');
+        $this->load->view('footer');
     }
 
     //Function that inserts the user to the database
@@ -61,7 +65,9 @@ class main extends CI_Controller {
 
     public function login()
     {
+        $this->load->view('header');
         $this->load->view('login');
+        $this->load->view('footer');
     }
 
     public function login_user()
