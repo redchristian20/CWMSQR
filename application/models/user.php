@@ -12,6 +12,8 @@
             return $this->db->query("SELECT * FROM users WHERE id=?", array($user_id))->row_array();
         }
 
+
+        //Returns an array with the specific user with the specified username
         function get_user_by_username($username)
         {
             return $this->db->query("SELECT * FROM users WHERE username=?", array($username))->row_array();
