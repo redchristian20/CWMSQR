@@ -19,8 +19,8 @@
                 <td><?=$val['venue']?></td>
                 <td>
                     <a href='/show/<?=$val['id']?>'>Show</a> | <a href='/edit_user/<?=$val['id']?>'>Edit</a> | 
-                    <form action='remove/<?=$val['id']?>' method='POST'>
-                        <input type='submit' value='remove'>
+                    <form action='join_workshop/<?=$val['id']?>' method='POST'>
+                        <input type='submit' value='Join Workshop'>
                     </form>
                 </td>
             </tr>
