@@ -8,7 +8,11 @@
             <input type="text" name="workshop_description">
 
             <label for="certificate_type">Certificate type:</label>
-            <input type="text" name="certificate_type">
+
+            <select name="certificate_type" id="certificate_type">
+              <option value="Participation">Participation</option>
+              <option value="Appreciation">Appreciation</option>
+            </select>
 
             <label for="venue">Venue:</label>
             <input type="text" name="venue">

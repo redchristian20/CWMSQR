@@ -111,18 +111,20 @@ class main extends CI_Controller {
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("workshop_name", "Workshop name", "trim|required");
-        $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|alpha");
-        $this->form_validation->set_rules("certificate_type", "Certificate type", "trim|required|alpha");
-        $this->form_validation->set_rules("venue", "Venue", "trim|required|alpha");
-        $this->form_validation->set_rules("workshop_date", "Workshop date", "trim|required|alpha");
-        $this->form_validation->set_rules("start_time", "Start time", "trim|alpha");
-        $this->form_validation->set_rules("end_time", "End time", "trim|required|valid_email");
+        $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|required");
+        $this->form_validation->set_rules("certificate_type", "Certificate type", "trim|required");
+        $this->form_validation->set_rules("venue", "Venue", "trim|required");
+        $this->form_validation->set_rules("workshop_date", "Workshop date", "trim|required");
+        $this->form_validation->set_rules("start_time", "Start time", "trim|required");
+        $this->form_validation->set_rules("end_time", "End time", "trim|required");
 
         if($this->form_validation->run() === FALSE)
         {
             $this->view_data["errors"] = validation_errors();
             $data['errors'] = $this->view_data["errors"];
+            $this->load->view('header');
             $this->load->view('add_workshop',$data);
+            $this->load->view('footer');
         }
         else
         {
@@ -134,5 +136,42 @@ class main extends CI_Controller {
                 redirect("/");
             }
         }  
+    }
+
+    public function workshops()
+    {
+        $this->load->view('header');
+        $data['workshops'] = $this->showWorkshops();
+        $this->load->view('workshops',$data);
+        $this->load->view('footer');
+    }
+
+    public function showWorkshops()
+    {
+        $this->load->model("workshop");
+		$workshops = $this->workshop->get_all_workshops();
+		return $workshops;
+    }
+    
+
+    public function home()
+    {
+        $this->load->view('header');
+        $this->load->view('home');
+        $this->load->view('footer');
+    }
+
+    public function about()
+    {
+        $this->load->view('header');
+        $this->load->view('about');
+        $this->load->view('footer');
+    }
+
+    public function profile()
+    {
+        $this->load->view('header');
+        $this->load->view('profile');
+        $this->load->view('footer');
     }
 }

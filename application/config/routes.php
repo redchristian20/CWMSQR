@@ -54,6 +54,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'main';
 
+$route['home'] = 'main/home'; 
+$route['about'] = 'main/about'; 
+$route['profile'] = 'main/profile'; 
+
 $route['register'] = 'main/register'; 
 $route['register_user'] = 'main/register_user'; 
 
@@ -64,6 +68,8 @@ $route['login_user'] = 'main/login_user';
 $route['add_workshop'] = 'main/add_workshop'; 
 $route['add_workshop_to_database'] = 'main/add_workshop_to_database'; 
 
+
+$route['workshops'] = 'main/workshops'; 
 /*
 $route['adduser'] = 'main/adduser'; 
 $route['add'] = 'main/add'; 

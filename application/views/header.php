@@ -30,8 +30,11 @@
 </style>
 
 <body>
-    <a href="login">Login</a>
-    <a href="register">Register</a>
+    <a href="home">Home</a>
     <a href="workshops">Workshops</a>
     <a href="add_workshop">Add workshop</a>
     <a href="about">About</a>
+    <a href="login">Login</a>
+    <a href="register">Register</a>
+    <a href="profile">Profile</a>
+    <input type="text" placeholder="Search..">
