@@ -19,9 +19,8 @@ class main extends CI_Controller {
         $this->load->view('footer');
     }
 
-    //Function that inserts the user to the database
-
     
+    //Function that inserts the user to the database
     public function register_user()
     {
         //TODO add form validation
@@ -95,5 +94,45 @@ class main extends CI_Controller {
         {
             echo "Username does not exist";
         }
+    }
+
+
+    public function add_workshop()
+    {
+        $this->load->view('header');
+        $this->load->view('add_workshop');
+        $this->load->view('footer');
+    }
+
+    public function add_workshop_to_database()
+    {
+        //TODO add form validation
+        //Loads the form validation library
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("workshop_name", "Workshop name", "trim|required");
+        $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|alpha");
+        $this->form_validation->set_rules("certificate_type", "Certificate type", "trim|required|alpha");
+        $this->form_validation->set_rules("venue", "Venue", "trim|required|alpha");
+        $this->form_validation->set_rules("workshop_date", "Workshop date", "trim|required|alpha");
+        $this->form_validation->set_rules("start_time", "Start time", "trim|alpha");
+        $this->form_validation->set_rules("end_time", "End time", "trim|required|valid_email");
+
+        if($this->form_validation->run() === FALSE)
+        {
+            $this->view_data["errors"] = validation_errors();
+            $data['errors'] = $this->view_data["errors"];
+            $this->load->view('add_workshop',$data);
+        }
+        else
+        {
+            //Loads the user model
+            $this->load->model("workshop");
+            $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"certificate_type" => $this->input->post('certificate_type'),"venue" => $this->input->post('venue'),"workshop_date" => $this->input->post('workshop_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
+            $add_workshop = $this->workshop->add_workshop($workshop_details);
+            if($workshop_details) {
+                redirect("/");
+            }
+        }  
     }
 }

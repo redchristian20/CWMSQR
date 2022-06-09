@@ -33,5 +33,5 @@
     <a href="login">Login</a>
     <a href="register">Register</a>
     <a href="workshops">Workshops</a>
-    <a href="add_workshops">Add workshop</a>
+    <a href="add_workshop">Add workshop</a>
     <a href="about">About</a>
