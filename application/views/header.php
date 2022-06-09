@@ -37,4 +37,5 @@
     <a href="login">Login</a>
     <a href="register">Register</a>
     <a href="profile">Profile</a>
+    <a href="certificates">Certificates</a>
     <input type="text" placeholder="Search..">
