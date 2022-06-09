@@ -18,7 +18,7 @@
                 <td><?=$val['certificate_type']?></td>
                 <td><?=$val['venue']?></td>
                 <td>
-                    <a href='/show/<?=$val['id']?>'>Show</a> | <a href='/edit_user/<?=$val['id']?>'>Edit</a> | 
+                    <a href='show_workshop/<?=$val['id']?>'>Show</a> | <a href='edit_workshop/<?=$val['id']?>'>Edit</a> | 
                     <form action='join_workshop/<?=$val['id']?>' method='POST'>
                         <input type='submit' value='Join Workshop'>
                     </form>

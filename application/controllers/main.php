@@ -174,4 +174,25 @@ class main extends CI_Controller {
         $this->load->view('profile');
         $this->load->view('footer');
     }
+
+
+    public function show_workshop($workshop_id)
+    {
+        $this->load->model("workshop");
+
+        $data['workshop'] = $this->workshop->get_workshop_by_id($workshop_id);
+        if(!empty($data))
+        {
+            $this->load->view('header');
+            $this->load->view('show_workshop',$data);
+            $this->load->view('footer');
+        }
+        else
+        {
+
+        }
+
+
+        
+    }
 }

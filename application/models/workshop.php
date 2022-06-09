@@ -4,6 +4,13 @@
         {
             return $this->db->query("SELECT * FROM workshops")->result_array();
         }
+
+        function get_workshop_by_id($user_id)
+        {
+            return $this->db->query("SELECT * FROM workshops WHERE id=?", array($user_id))->row_array();
+        }
+ 
+
         function add_workshop($workshop)
         {
             $query = "INSERT INTO workshops(workshop_name, workshop_description, certificate_type, venue, workshop_date, start_time, end_time, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)";
