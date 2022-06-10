@@ -12,6 +12,7 @@
             <select name="certificate_type" id="certificate_type">
               <option value="Participation">Participation</option>
               <option value="Appreciation">Appreciation</option>
+              <option value="Appreciation">Attendance</option>
             </select>
 
             <label for="venue">Venue:</label>

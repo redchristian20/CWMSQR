@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class main extends CI_Controller {
 
+
     //Function that loads the homepage
 	public function index()
 	{
@@ -31,7 +32,7 @@ class main extends CI_Controller {
         $this->form_validation->set_rules("honorific", "Honorific", "trim|alpha");
         $this->form_validation->set_rules("lastname", "Last name", "trim|required|alpha");
         $this->form_validation->set_rules("firstname", "First name", "trim|required|alpha");
-        $this->form_validation->set_rules("middlename", "Middle name", "trim|required|alpha");
+        $this->form_validation->set_rules("middlename", "Middle name", "trim|alpha");
         $this->form_validation->set_rules("suffix", "Suffix", "trim|alpha");
         $this->form_validation->set_rules("email", "Email", "trim|required|valid_email");
         $this->form_validation->set_rules("contact_number", "Contact number", "trim|required|numeric");
@@ -47,7 +48,6 @@ class main extends CI_Controller {
         else
         {
             //codes to run on success validation here
-            echo "success";
             //Creates the salt to encrypt password
             $salt = bin2hex(openssl_random_pseudo_bytes(22));
             $encrypted_password = md5($this->input->post('password') . '' . $salt);
@@ -55,20 +55,21 @@ class main extends CI_Controller {
             $this->load->model("user");
             $user_details = array("username" => $this->input->post('username'), "honorific" => $this->input->post('honorific'),"lastname" => $this->input->post('lastname'),"firstname" => $this->input->post('firstname'),"middlename" => $this->input->post('middlename'), "suffix" => $this->input->post('suffix'), "email" => $this->input->post('email'), "contact_number" => $this->input->post('contact_number'), "password" => $encrypted_password, "salt" => $salt);
             $add_user = $this->user->add_user($user_details);
+
             if($add_user) {
-                redirect("/");
+                redirect("login");
+            }else{
+                
             }
+            
         }  
     }
-
-
     public function login()
     {
         $this->load->view('header');
         $this->load->view('login');
         $this->load->view('footer');
     }
-
     public function login_user()
     {
         $username = $this->input->post('username');
@@ -82,7 +83,14 @@ class main extends CI_Controller {
             if($getuser['password'] == $encrypted_password)
             {
                 //this means we have a successful login!
-                echo "success";
+                $newdata = array(
+                    'username'  => $getuser['username'],
+                    'user_level'  => $getuser['user_level'],
+                );
+                $this->session->set_userdata($newdata);
+                $this->load->view('header');
+                $this->load->view('home');
+                $this->load->view('footer');
             }
             else
             {
@@ -95,8 +103,6 @@ class main extends CI_Controller {
             echo "Username does not exist";
         }
     }
-
-
     public function add_workshop()
     {
         $this->load->view('header');
@@ -128,7 +134,7 @@ class main extends CI_Controller {
         }
         else
         {
-            //Loads the user model
+            //Loads the u ser model
             $this->load->model("workshop");
             $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"certificate_type" => $this->input->post('certificate_type'),"venue" => $this->input->post('venue'),"workshop_date" => $this->input->post('workshop_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
             $add_workshop = $this->workshop->add_workshop($workshop_details);
@@ -179,7 +185,6 @@ class main extends CI_Controller {
     public function show_workshop($workshop_id)
     {
         $this->load->model("workshop");
-
         $data['workshop'] = $this->workshop->get_workshop_by_id($workshop_id);
         if(!empty($data))
         {
@@ -187,12 +192,46 @@ class main extends CI_Controller {
             $this->load->view('show_workshop',$data);
             $this->load->view('footer');
         }
-        else
+
+        if($workshop_id == 'home')
         {
-
+            redirect("home");
         }
+        if($workshop_id == 'workshops')
+        {
+            redirect("workshops");
+        }
+        if($workshop_id == 'add_workshop')
+        {
+            redirect("add_workshop");
+        }
+        if($workshop_id == 'about')
+        {
+            redirect("about");
+        }
+        if($workshop_id == 'login')
+        {
+            redirect("login");
+        }
+        if($workshop_id == 'register')
+        {
+            redirect("register");
+        }
+        if($workshop_id == 'profile')
+        {
+            redirect("profile");
+        }
+        if($workshop_id == 'certificates')
+        {
+            redirect("certificates");
+        }
+    }
 
 
-        
+    public function logout()
+    {
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('user_level');
+        redirect("/");
     }
 }

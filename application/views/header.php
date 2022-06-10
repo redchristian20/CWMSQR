@@ -3,39 +3,54 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>UC Workshop Management</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!--<link rel='stylesheet' type='text/css' media='screen' href='<?php //echo base_url();?>assets/css/main.css'>-->
+    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo base_url();?>assets/css/main.css'>
 
 </head>
 
-<style>
-    body{
-        width:960px;
-        margin:10px auto 10px auto;
-    }
-    td{
-        border:1px solid black;
-        padding:10px;
-    }
-    form *{
-        display:block;
-        margin:0 0 10px 0;
-    }
-
-    td *{
-        display:inline;
-    }
-
-</style>
-
 <body>
-    <a href="home">Home</a>
-    <a href="workshops">Workshops</a>
-    <a href="add_workshop">Add workshop</a>
-    <a href="about">About</a>
-    <a href="login">Login</a>
-    <a href="register">Register</a>
-    <a href="profile">Profile</a>
-    <a href="certificates">Certificates</a>
-    <input type="text" placeholder="Search..">
+<div class='header'>
+ 
+</div>
+<nav>
+
+<?php
+        if(null!==($this->session->userdata('user_level')))
+        {?>
+<?php     if($this->session->userdata('user_level')==10)
+            {?>
+        <ul class='nav-left'>
+            <li><a href="home">Home</a></li>
+            <li><a href="add_workshop">Add workshop</a></li>
+            <li><a href="workshops">Workshops</a></li>
+            </ul>
+            <ul class='nav-right'>
+            <li><a href="profile">Profile</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
+<?php       }else{?>
+
+        <ul class='nav-left'>
+            <li><a href="home">Home</a></li>
+            </ul>
+            <ul class='nav-right'>
+            <li><a href="profile">Profile</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
+        
+<?php       }?>
+<?php   }else{?>
+        <ul class='nav-left'>
+            <li><a href="home">Home</a></li>
+            </ul>
+            <ul class='nav-right'>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
+        </ul>
+<?php   }
+    ?>
+    
+</nav>
+
+
