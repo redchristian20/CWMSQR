@@ -22,8 +22,9 @@
             {?>
         <ul class='nav-left'>
             <li><a href="home">Home</a></li>
-            <li><a href="add_workshop">Add workshop</a></li>
             <li><a href="workshops">Workshops</a></li>
+            <li><a href="certificate_verification">Certificate Verification</a></li>
+            <li><a href="add_workshop">Add workshop</a></li>
             </ul>
             <ul class='nav-right'>
             <li><a href="profile">Profile</a></li>
@@ -33,6 +34,8 @@
 
         <ul class='nav-left'>
             <li><a href="home">Home</a></li>
+            <li><a href="workshops">Workshops</a></li>
+            <li><a href="certificate_verification">Certificate Verification</a></li>
             </ul>
             <ul class='nav-right'>
             <li><a href="profile">Profile</a></li>
@@ -43,6 +46,8 @@
 <?php   }else{?>
         <ul class='nav-left'>
             <li><a href="home">Home</a></li>
+            <li><a href="workshops">Workshops</a></li>
+            <li><a href="certificate_verification">Certificate Verification</a></li>
             </ul>
             <ul class='nav-right'>
             <li><a href="login">Login</a></li>

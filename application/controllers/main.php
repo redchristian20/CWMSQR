@@ -118,7 +118,6 @@ class main extends CI_Controller {
 
         $this->form_validation->set_rules("workshop_name", "Workshop name", "trim|required");
         $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|required");
-        $this->form_validation->set_rules("certificate_type", "Certificate type", "trim|required");
         $this->form_validation->set_rules("venue", "Venue", "trim|required");
         $this->form_validation->set_rules("workshop_date", "Workshop date", "trim|required");
         $this->form_validation->set_rules("start_time", "Start time", "trim|required");
@@ -136,7 +135,7 @@ class main extends CI_Controller {
         {
             //Loads the u ser model
             $this->load->model("workshop");
-            $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"certificate_type" => $this->input->post('certificate_type'),"venue" => $this->input->post('venue'),"workshop_date" => $this->input->post('workshop_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
+            $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"workshop_date" => $this->input->post('workshop_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
             $add_workshop = $this->workshop->add_workshop($workshop_details);
             if($workshop_details) {
                 redirect("/");

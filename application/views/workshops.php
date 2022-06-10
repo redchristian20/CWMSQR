@@ -5,7 +5,6 @@
             <tr>
                 <td>Workshop name</td>
                 <td>Workshop description</td>
-                <td>Certificate type</td>
                 <td>Venue</td>
                 <td>Actions</td>
             </tr>
@@ -15,7 +14,6 @@
             <tr>
                 <td><?=$val['workshop_name']?></td>
                 <td><?=$val['workshop_description']?></td>
-                <td><?=$val['certificate_type']?></td>
                 <td><?=$val['venue']?></td>
                 <td>
                     <a href='show_workshop/<?=$val['id']?>'>Show</a> | <a href='edit_workshop/<?=$val['id']?>'>Edit</a> | 
