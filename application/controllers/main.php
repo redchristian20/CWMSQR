@@ -92,7 +92,7 @@ class main extends CI_Controller {
             }
             else 
             {
-                //invalid password! lol 2
+                //invalid password! lol
                 echo "invalid password";
             } 
         }
