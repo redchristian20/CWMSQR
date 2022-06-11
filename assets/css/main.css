@@ -7,6 +7,10 @@
 body {
   margin: auto;
   width: 960px;
+  background-color: #99ff99;
+}
+body *{
+  font-family: 'Poppins', sans-serif;
 }
 
 .header {
@@ -14,6 +18,7 @@ body {
   min-height: 100px;
   background-color: green;
   display: block;
+  width: 100%;
 }
 
 nav * {
@@ -34,10 +39,10 @@ nav a {
 }
 
 .nav-left {
-  width: 50%;
+  width: 60%;
 }
 .nav-right {
-  width:49.5%;
+  width: 39.5%;
   text-align: right;
 }
 
@@ -63,4 +68,48 @@ form *{
   min-height: 50px;
   background-color: green;
   width: 100%;
+}
+
+.workshop-section table{
+  padding:20px
+}
+
+.workshop-details-container{
+  margin: auto;
+  font-size: 1.5em;
+  
+}
+
+
+tr,td{
+  padding: 10px;
+}
+
+
+.workshop-details-container-card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  padding: 2px 16px;
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.workshop-details-container-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+/* Add some padding inside the card container */
+.workshop-details-container-card {
+  padding: 2px 16px;
+}
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: green;
+  color: white;
 }
