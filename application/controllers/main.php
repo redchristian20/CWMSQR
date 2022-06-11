@@ -88,9 +88,7 @@ class main extends CI_Controller {
                     'user_level'  => $getuser['user_level'],
                 );
                 $this->session->set_userdata($newdata);
-                $this->load->view('header');
-                $this->load->view('home');
-                $this->load->view('footer');
+                redirect("home");
             }
             else
             {

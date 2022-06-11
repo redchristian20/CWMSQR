@@ -6,10 +6,12 @@
 
 body {
   margin: auto;
+  width: 960px;
 }
 
 .header {
   height: 100px;
+  min-height: 100px;
   background-color: green;
   display: block;
 }
@@ -55,4 +57,10 @@ td , tr{
 
 form *{
   display: block;
+}
+.footer{
+  height: 50px;
+  min-height: 50px;
+  background-color: green;
+  width: 100%;
 }
