@@ -75,10 +75,11 @@ $route['add_workshop'] = 'main/add_workshop';
 $route['add_workshop_to_database'] = 'main/add_workshop_to_database'; 
 
 
-$route['workshops'] = 'main/workshops';
+$route['manage_workshops'] = 'main/manage_workshops';
 
 $route['show_workshop/(:any)'] = 'main/show_workshop/$1';
 
+$route['profile/(:any)'] = 'main/profile/$1';
 
 
 

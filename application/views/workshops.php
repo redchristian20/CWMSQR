@@ -19,8 +19,8 @@
                 <td><?=$val['workshop_description']?></td>
                 <td><?=$val['venue']?></td>
                 <td><?=$val['workshop_date']?></td>
-                <td><?=$val['start_time']?></td>
-                <td><?=$val['end_time']?></td>
+                <td><?=date('h:i A',strtotime($val['start_time']))?></td>
+                <td><?=date('h:i A',strtotime($val['end_time']))?></td>
                 <td>
                     <a href='show_workshop/<?=$val['id']?>'>Show</a> | <a href='edit_workshop/<?=$val['id']?>'>Edit</a>
                 </td>

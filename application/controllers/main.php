@@ -131,7 +131,7 @@ class main extends CI_Controller {
         }
         else
         {
-            //Loads the u ser model
+            //Loads the user model
             $this->load->model("workshop");
             $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"workshop_date" => $this->input->post('workshop_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
             $add_workshop = $this->workshop->add_workshop($workshop_details);
@@ -142,6 +142,11 @@ class main extends CI_Controller {
     }
 
     public function workshops()
+    {
+
+    }
+
+    public function manage_workshops()
     {
         $this->load->view('header');
         $data['workshops'] = $this->showWorkshops();
@@ -171,11 +176,54 @@ class main extends CI_Controller {
         $this->load->view('footer');
     }
 
-    public function profile()
+    public function profile($username)
     {
-        $this->load->view('header');
-        $this->load->view('profile');
-        $this->load->view('footer');
+        if($username == 'profile')
+        {
+            redirect("/");
+        }else{
+            $this->load->view('header');
+            $this->load->view('profile');
+            $this->load->view('footer');
+        }
+
+
+        if($username == 'home')
+        {
+            redirect("home");
+        }
+        if($username == 'manage_workshops')
+        {
+            redirect("manage_workshops");
+        }
+        if($username == 'workshops')
+        {
+            redirect("workshops");
+        }
+        if($username == 'add_workshop')
+        {
+            redirect("add_workshop");
+        }
+        if($username == 'about')
+        {
+            redirect("about");
+        }
+        if($username == 'login')
+        {
+            redirect("login");
+        }
+        if($username == 'register')
+        {
+            redirect("register");
+        }
+        if($username == 'profile')
+        {
+            redirect("/");
+        }
+        if($username == 'certificate_verification')
+        {
+            redirect("certificate_verification");
+        }
     }
 
 
