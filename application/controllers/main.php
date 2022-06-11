@@ -90,9 +90,9 @@ class main extends CI_Controller {
                 $this->session->set_userdata($newdata);
                 redirect("home");
             }
-            else
+            else 
             {
-                //invalid password!
+                //invalid password! lol
                 echo "invalid password";
             } 
         }
