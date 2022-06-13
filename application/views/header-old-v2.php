@@ -14,6 +14,7 @@
 
 <body>
 <div class='header'>
+    
 </div>
 <nav>
 
@@ -23,13 +24,26 @@
 <?php     if($this->session->userdata('user_level')==10)
             {?>
         <ul class='nav-left'>
-                <li><a href="workshops">Workshops</a></li>
-                <li><a href="manage_workshops">Manage Workshops</a></li>
+            <li><a href="home">Home</a></li>
+            <li><a href="manage_workshops">Manage Workshops</a></li>
+            <li><a href="certificate_verification">Certificate Verification</a></li>
+            <li><a href="add_workshop">Add workshop</a></li>
             </ul>
             <ul class='nav-right'>
-                <li><a href="add_workshop">Add workshop</a></li>
+            <li><a href="profile/<?=$this->session->userdata('username')?>">Profile</a></li>
+            <li><a href="logout">Logout</a></li>
         </ul>
 <?php       }else{?>
+
+        <ul class='nav-left'>
+            <li><a href="home">Home</a></li>
+            <li><a href="workshops">Workshops</a></li>
+            <li><a href="certificate_verification">Certificate Verification</a></li>
+            </ul>
+            <ul class='nav-right'>
+            <li><a href="profile/<?=$this->session->userdata('username')?>">Profile</a></li>
+            <li><a href="logout">Logout</a></li>
+        </ul>
         
 <?php       }?>
 <?php   }else{?>

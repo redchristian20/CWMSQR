@@ -12,20 +12,22 @@
                 <td><strong>Actions</strong></td>
             </tr>
 <?php
-        foreach($workshops as $key => $val)
-        {?>
-            <tr>
-                <td><?=$val['workshop_name']?></td>
-                <td><?=$val['workshop_description']?></td>
-                <td><?=$val['venue']?></td>
-                <td><?=$val['workshop_date']?></td>
-                <td><?=date('h:i A',strtotime($val['start_time']))?></td>
-                <td><?=date('h:i A',strtotime($val['end_time']))?></td>
-                <td>
-                    <a href='show_workshop/<?=$val['id']?>'>Show</a> | <a href='edit_workshop/<?=$val['id']?>'>Edit</a>
-                </td>
-            </tr>
-<?php   }
+        if(isset($workshops)){
+            foreach($workshops as $key => $val)
+            {?>
+                <tr>
+                    <td><?=$val['workshop_name']?></td>
+                    <td><?=$val['workshop_description']?></td>
+                    <td><?=$val['venue']?></td>
+                    <td><?=$val['workshop_date']?></td>
+                    <td><?=date('h:i A',strtotime($val['start_time']))?></td>
+                    <td><?=date('h:i A',strtotime($val['end_time']))?></td>
+                    <td>
+                        <a href='show_workshop/<?=$val['id']?>'>Show</a> | <a href='edit_workshop/<?=$val['id']?>'>Edit</a>
+                    </td>
+                </tr>
+<?php       }
+        }
 ?>
         </table>
     </div>

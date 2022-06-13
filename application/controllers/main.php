@@ -3,114 +3,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class main extends CI_Controller {
 
+    public function __construct()
+    {
+            parent::__construct();
+            $this->load->helper(array('form', 'url'));
+    }
+
 
     //Function that loads the homepage
 	public function index()
 	{
 		$this->load->view('header');
-        $this->load->view('home');
+        $this->load->view('workshops');
         $this->load->view('footer');
 	}
 
-    //Function that loads the register page
-    public function register()
-    {
-        $this->load->view('header');
-        $this->load->view('register');
-        $this->load->view('footer');
-    }
-
-    
-    //Function that inserts the user to the database
-    public function register_user()
-    {
-        //TODO add form validation
-        //Loads the form validation library
-        $this->load->library("form_validation");
-
-        $this->form_validation->set_rules("username", "Username", "trim|required");
-        $this->form_validation->set_rules("honorific", "Honorific", "trim|alpha");
-        $this->form_validation->set_rules("lastname", "Last name", "trim|required|alpha");
-        $this->form_validation->set_rules("firstname", "First name", "trim|required|alpha");
-        $this->form_validation->set_rules("middlename", "Middle name", "trim|alpha");
-        $this->form_validation->set_rules("suffix", "Suffix", "trim|alpha");
-        $this->form_validation->set_rules("email", "Email", "trim|required|valid_email");
-        $this->form_validation->set_rules("contact_number", "Contact number", "trim|required|numeric");
-        $this->form_validation->set_rules("password", "Password", "trim|required|min_length[8]|max_length[20]");
-        $this->form_validation->set_rules("confirm_password", "Confirm password", "trim|required|matches[password]");
-
-        if($this->form_validation->run() === FALSE)
-        {
-            $this->view_data["errors"] = validation_errors();
-            $data['errors'] = $this->view_data["errors"];
-            $this->load->view('register',$data);
-        }
-        else
-        {
-            //codes to run on success validation here
-            //Creates the salt to encrypt password
-            $salt = bin2hex(openssl_random_pseudo_bytes(22));
-            $encrypted_password = md5($this->input->post('password') . '' . $salt);
-            //Loads the user model
-            $this->load->model("user");
-            $user_details = array("username" => $this->input->post('username'), "honorific" => $this->input->post('honorific'),"lastname" => $this->input->post('lastname'),"firstname" => $this->input->post('firstname'),"middlename" => $this->input->post('middlename'), "suffix" => $this->input->post('suffix'), "email" => $this->input->post('email'), "contact_number" => $this->input->post('contact_number'), "password" => $encrypted_password, "salt" => $salt);
-            $add_user = $this->user->add_user($user_details);
-
-            if($add_user) {
-                redirect("login");
-            }else{
-                
-            }
-            
-        }  
-    }
-    public function login()
-    {
-        $this->load->view('header');
-        $this->load->view('login');
-        $this->load->view('footer');
-    }
-    public function login_user()
-    {
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $this->load->model("user");
-
-        $getuser = $this->user->get_user_by_username($username);
-        if(!empty($getuser))
-        {
-            $encrypted_password = md5($password . '' . $getuser['salt']);
-            if($getuser['password'] == $encrypted_password)
-            {
-                //this means we have a successful login!
-                $newdata = array(
-                    'username'  => $getuser['username'],
-                    'user_level'  => $getuser['user_level'],
-                );
-                $this->session->set_userdata($newdata);
-                redirect("home");
-            }
-            else 
-            {
-                //invalid password! lol
-                echo "invalid password";
-            } 
-        }
-        else
-        {
-            echo "Username does not exist";
-        }
-    }
     public function add_workshop()
     {
         $this->load->view('header');
-        $this->load->view('add_workshop');
+        $this->load->view('add_workshop', array('error' => ' ' ));
         $this->load->view('footer');
     }
 
+    /*
+    public function qrgenerate()
+	{
+		$qrcode['red'] = false;
+		if(isset($_POST['submit'])){
+			$qrcode['red'] = true;
+			$size = "200x200";
+			$color = str_replace('#','','black');
+			$password = $_POST['password'];
+			$salt = bin2hex(openssl_random_pseudo_bytes(22));
+			$encrypted_password = md5($password . '' . $salt);
+			$data = $encrypted_password;
+			$qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
+			$qrcode['qr'] = $qr;
+			$this->load->view('main',$qrcode);
+		}
+    }*/
+
     public function add_workshop_to_database()
     {
-        //TODO add form validation
+        //function to upload files
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 0;
+        $config['max_width']            = 0;
+        $config['max_height']           = 0;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('userfile'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('confirm_workshop', $error);
+        }
+        else
+        {
+            $size = "200x200";
+            $color = str_replace('#','','black');
+            $data = "sheesh";
+            $qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
+            $data = array('upload_data' => $this->upload->data(), 'qr' => $qr, "workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'), "end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
+            $this->load->view('confirm_workshop', $data);
+        }
+        /*
         //Loads the form validation library
         $this->load->library("form_validation");
 
@@ -138,7 +96,8 @@ class main extends CI_Controller {
             if($workshop_details) {
                 redirect("/");
             }
-        }  
+        } 
+        */ 
     }
 
     public function workshops()
@@ -161,71 +120,6 @@ class main extends CI_Controller {
 		return $workshops;
     }
     
-
-    public function home()
-    {
-        $this->load->view('header');
-        $this->load->view('home');
-        $this->load->view('footer');
-    }
-
-    public function about()
-    {
-        $this->load->view('header');
-        $this->load->view('about');
-        $this->load->view('footer');
-    }
-
-    public function profile($username)
-    {
-        if($username == 'profile')
-        {
-            redirect("/");
-        }else{
-            $this->load->view('header');
-            $this->load->view('profile');
-            $this->load->view('footer');
-        }
-
-
-        if($username == 'home')
-        {
-            redirect("home");
-        }
-        if($username == 'manage_workshops')
-        {
-            redirect("manage_workshops");
-        }
-        if($username == 'workshops')
-        {
-            redirect("workshops");
-        }
-        if($username == 'add_workshop')
-        {
-            redirect("add_workshop");
-        }
-        if($username == 'about')
-        {
-            redirect("about");
-        }
-        if($username == 'login')
-        {
-            redirect("login");
-        }
-        if($username == 'register')
-        {
-            redirect("register");
-        }
-        if($username == 'profile')
-        {
-            redirect("/");
-        }
-        if($username == 'certificate_verification')
-        {
-            redirect("certificate_verification");
-        }
-    }
-
 
     public function show_workshop($workshop_id)
     {
@@ -270,13 +164,5 @@ class main extends CI_Controller {
         {
             redirect("certificates");
         }
-    }
-
-
-    public function logout()
-    {
-        $this->session->unset_userdata('username');
-        $this->session->unset_userdata('user_level');
-        redirect("/");
     }
 }
