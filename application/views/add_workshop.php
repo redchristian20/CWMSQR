@@ -28,7 +28,7 @@
         <input type="time" name="end_time">
 
         <input type="hidden" name="form_submitted" value="1" />
-        <input type="submit" name="submit" value="Submit">
+        <input type="submit" name="submit" value="Add Workshop">
     </form>
     
     

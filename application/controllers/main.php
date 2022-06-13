@@ -66,9 +66,10 @@ class main extends CI_Controller {
             $data = "sheesh";
             $qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
             $data = array('upload_data' => $this->upload->data(), 'qr' => $qr, "workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'), "end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
-            $this->load->view('confirm_workshop', $data);
+            //$this->load->view('confirm_workshop', $data);
         }
-        /*
+
+        
         //Loads the form validation library
         $this->load->library("form_validation");
 
@@ -91,13 +92,12 @@ class main extends CI_Controller {
         {
             //Loads the user model
             $this->load->model("workshop");
-            $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"workshop_date" => $this->input->post('workshop_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
+            $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'),"end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'),"event_poster_link" => $this->input->post('event_poster_link'),"qr_code_link" => $this->input->post('qr_code_link'));
             $add_workshop = $this->workshop->add_workshop($workshop_details);
             if($workshop_details) {
                 redirect("/");
             }
-        } 
-        */ 
+        }
     }
 
     public function workshops()
