@@ -1,7 +1,8 @@
 <div class='add-workshop-section'>
 
 
-    <?php if(isset($error)){echo $error;}?>
+    <?php if(isset($errors)){echo $errors;}?>
+    <?php if(isset($image_error)){echo $image_error;}?>
     <h2>Workshop Event Creation</h2>
 
     <?php echo form_open_multipart('add_workshop_to_database');?>

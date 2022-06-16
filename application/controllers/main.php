@@ -45,6 +45,17 @@ class main extends CI_Controller {
 
     public function add_workshop_to_database()
     {
+        //Loads the form validation library
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("workshop_name", "Workshop name", "trim|required");
+        $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|required");
+        $this->form_validation->set_rules("venue", "Venue", "trim|required");
+        $this->form_validation->set_rules("start_date", "Start date", "trim|required");
+        $this->form_validation->set_rules("end_date", "End date", "trim|required");
+        $this->form_validation->set_rules("start_time", "Start time", "trim|required");
+        $this->form_validation->set_rules("end_time", "End time", "trim|required");
+
         //function to upload files
         $config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
@@ -54,10 +65,12 @@ class main extends CI_Controller {
 
         $this->load->library('upload', $config);
 
-        if ( ! $this->upload->do_upload('userfile'))
+        if (!$this->upload->do_upload('userfile') || $this->form_validation->run() === FALSE)
         {
-                $error = array('error' => $this->upload->display_errors());
-                $this->load->view('confirm_workshop', $error);
+                $error = array('image_error' => $this->upload->display_errors(), 'errors' => validation_errors());
+                $this->load->view('header');
+                $this->load->view('add_workshop', $error);
+                $this->load->view('footer');
         }
         else
         {
@@ -65,39 +78,17 @@ class main extends CI_Controller {
             $color = str_replace('#','','black');
             $data = "sheesh";
             $qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
-            $data = array('upload_data' => $this->upload->data(), 'qr' => $qr, "workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'), "end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'));
+            $data = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'), "end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => './uploads/'.$this->input->post('end_time'),'event_poster_link' => $this->upload->data('file_name'),'qr_code_link' => $qr);
             //$this->load->view('confirm_workshop', $data);
-        }
 
-        
-        //Loads the form validation library
-        $this->load->library("form_validation");
-
-        $this->form_validation->set_rules("workshop_name", "Workshop name", "trim|required");
-        $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|required");
-        $this->form_validation->set_rules("venue", "Venue", "trim|required");
-        $this->form_validation->set_rules("workshop_date", "Workshop date", "trim|required");
-        $this->form_validation->set_rules("start_time", "Start time", "trim|required");
-        $this->form_validation->set_rules("end_time", "End time", "trim|required");
-
-        if($this->form_validation->run() === FALSE)
-        {
-            $this->view_data["errors"] = validation_errors();
-            $data['errors'] = $this->view_data["errors"];
-            $this->load->view('header');
-            $this->load->view('add_workshop',$data);
-            $this->load->view('footer');
-        }
-        else
-        {
             //Loads the user model
             $this->load->model("workshop");
-            $workshop_details = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'),"end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => $this->input->post('end_time'),"event_poster_link" => $this->input->post('event_poster_link'),"qr_code_link" => $this->input->post('qr_code_link'));
-            $add_workshop = $this->workshop->add_workshop($workshop_details);
-            if($workshop_details) {
+            $add_workshop = $this->workshop->add_workshop($data);
+            if($add_workshop) {
                 redirect("/");
             }
         }
+            
     }
 
     public function workshops()
