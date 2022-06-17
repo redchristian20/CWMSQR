@@ -16,35 +16,12 @@
 <div class='header'>
 </div>
 <nav>
-
-<?php
-        if(null!==($this->session->userdata('user_level')))
-        {?>
-<?php     if($this->session->userdata('user_level')==10)
-            {?>
-        <ul class='nav-left'>
-                <li><a href="workshops">Workshops</a></li>
-                <li><a href="manage_workshops">Manage Workshops</a></li>
-            </ul>
-            <ul class='nav-right'>
-                <li><a href="add_workshop">Add workshop</a></li>
-        </ul>
-<?php       }else{?>
-        
-<?php       }?>
-<?php   }else{?>
-        <ul class='nav-left'>
-            <li><a href="home">Home</a></li>
-            <li><a href="workshops">Workshops</a></li>
-            <li><a href="certificate_verification">Certificate Verification</a></li>
-            </ul>
-            <ul class='nav-right'>
-            <li><a href="login">Login</a></li>
-            <li><a href="register">Register</a></li>
-        </ul>
-<?php   }
-    ?>
-    
+    <ul class='nav-left'>
+        <li><a href="manage_workshops">Manage Workshops</a></li>
+    </ul>
+    <ul class='nav-right'>
+        <li><a href="add_workshop">Add workshop</a></li>
+    </ul>
 </nav>
 
 

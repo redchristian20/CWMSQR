@@ -76,7 +76,7 @@ class main extends CI_Controller {
         {
             $size = "200x200";
             $color = str_replace('#','','black');
-            $data = "sheesh";
+            $data = "192.168.0.1/show_workshop/".$this->input->post('workshop_name');
             $qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
             $data = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'), "end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => './uploads/'.$this->input->post('end_time'),'event_poster_link' => $this->upload->data('file_name'),'qr_code_link' => $qr);
             //$this->load->view('confirm_workshop', $data);
@@ -123,37 +123,13 @@ class main extends CI_Controller {
             $this->load->view('footer');
         }
 
-        if($workshop_id == 'home')
+        if($workshop_id == 'manage_workshops')
         {
-            redirect("home");
-        }
-        if($workshop_id == 'workshops')
-        {
-            redirect("workshops");
+            redirect("manage_workshops");
         }
         if($workshop_id == 'add_workshop')
         {
             redirect("add_workshop");
-        }
-        if($workshop_id == 'about')
-        {
-            redirect("about");
-        }
-        if($workshop_id == 'login')
-        {
-            redirect("login");
-        }
-        if($workshop_id == 'register')
-        {
-            redirect("register");
-        }
-        if($workshop_id == 'profile')
-        {
-            redirect("profile");
-        }
-        if($workshop_id == 'certificates')
-        {
-            redirect("certificates");
         }
     }
 }

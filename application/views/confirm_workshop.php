@@ -15,7 +15,7 @@
     <p><?php if(isset($end_date)){echo $end_date;} ?></p>
     <p><?php if(isset($start_time)){echo $start_time;} ?></p>
     <p><?php if(isset($end_time)){echo $end_time;} ?></p>
-
+    
     <form action="confirm_workshop" method="post">
         <input type="hidden" name="form_submitted" value="1" />
         <input type="submit" name="Confirm" value="Confirm">
