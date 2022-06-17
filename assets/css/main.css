@@ -6,6 +6,7 @@
 
 body {
   margin: auto;
+  padding: 30px;
   width: 960px;
 }
 body *{
@@ -51,10 +52,6 @@ nav a {
   text-align: center;
 }
 
-img {
-  width: 80%;
-}
-
 td , tr{
   border:1px solid black;
 }
@@ -89,6 +86,7 @@ tr,td{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   transition: 0.3s;
   padding: 2px 16px;
+  margin: 10px;
 
 }
 
@@ -103,4 +101,21 @@ tr,td{
 }
 
 
+.workshop-banner{
+  width: 100%;
+  object-fit: scale-down;
+}
 
+input[type=submit]
+{
+  color: white;
+  padding: 10px;
+  background-color: green;
+  margin: 10px;
+}
+
+.footer{
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
