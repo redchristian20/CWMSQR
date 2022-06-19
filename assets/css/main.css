@@ -101,6 +101,7 @@ tr,td{
 }
 
 
+<<<<<<< Updated upstream
 .workshop-banner{
   width: 100%;
   object-fit: scale-down;
@@ -118,4 +119,8 @@ input[type=submit]
   padding: 10px;
   color: white;
   font-weight: bold;
+=======
+.workshop-section *{
+  display: block;
+>>>>>>> Stashed changes
 }
