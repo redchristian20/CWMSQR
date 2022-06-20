@@ -1,7 +1,7 @@
 <div class="workshop-details-container-card">
 
   <h3>Workshop Details</h3>
-  <p><img src="../uploads/<?= $workshop['event_poster_link']?>" class="img-fluid" alt="Image"></p>
+  <p><img src="../uploads/<?= $workshop['event_poster_link']?>" class="workshop-banner" alt="Image"></p>
   <p><strong>Name: </strong><?=$workshop['workshop_name']?></p>
   <p><strong>Description: </strong><?=$workshop['workshop_description']?></p>
   <p><strong>Venue: </strong><?=$workshop['venue']?></p>
