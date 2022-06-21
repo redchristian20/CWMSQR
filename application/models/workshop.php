@@ -17,5 +17,12 @@
             $values = array($workshop['workshop_name'],$workshop['workshop_description'], $workshop['venue'], $workshop['start_date'], $workshop['end_date'], $workshop['start_time'], $workshop['end_time'], $workshop['event_poster_link'], $workshop['qr_code_link'], date("Y-m-d, H:i:s"), date("Y-m-d, H:i:s")); 
             return $this->db->query($query, $values);
         }
+
+        function update_workshop($workshop)
+        {
+            $query = "UPDATE workshops SET workshop_name=?, workshop_description=?, venue=?, start_date=?, end_date=?, start_time=?, end_time, event_poster_link, qr_code_link=?, updated_at=? WHERE id=?";
+            $values = array($workshop['workshop_name'],$workshop['workshop_description'],$workshop['venue'],$workshop['start_date'], $workshop['end_date'], $workshop['event_poster_link'], $workshop['qr_code_link'], date("Y-m-d, H:i:s"), $workshop['id']); 
+            return $this->db->query($query, $values);
+        }
     }
 ?>

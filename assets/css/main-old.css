@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  width: 960px;
+}
+body *{
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  height: 100px;
+  min-height: 100px;
+  background-color: green;
+  display: block;
+  width: 100%;
+}
+
+nav * {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+nav li {
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  background-color: green;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+.nav-left {
+  width: 39%;
+}
+.nav-right {
+  width: 59%;
+  text-align: right;
+}
+
+.home-content {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+td , tr{
+  border:1px solid black;
+}
+
+form *{
+  display: block;
+}
+.footer{
+  height: 50px;
+  min-height: 50px;
+  background-color: green;
+  width: 100%;
+}
+
+.workshop-section table{
+  padding:20px
+}
+
+.workshop-details-container{
+  margin: auto;
+  font-size: 1em;
+}
+
+tr,td{
+  padding: 10px;
+}
+
+.workshop-details-container-card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  padding: 2px 16px;
+  margin: 10px;
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.workshop-details-container-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+/* Add some padding inside the card container */
+.workshop-details-container-card {
+  padding: 2px 16px;
+}
+
+
+.workshop-banner{
+  width: 40%;
+  object-fit: cover;
+}
+
+input[type=submit]
+{
+  color: white;
+  padding: 10px;
+  margin: 10px;
+}
+
+.footer{
+  padding: 10px;
+  color: white;
+}

@@ -17,9 +17,12 @@
 </div>
 <nav>
     <ul class='nav-left'>
-        <li><a href="manage_workshops">Manage Workshops</a></li>
+        <!--<li><a href="manage_workshops">Manage Workshops</a></li>-->
     </ul>
     <ul class='nav-right'>
+        <li><a href="home">Home</a></li>
+        <li><a href="workshops">Workshops</a></li>
+        <li><a href="certificate_verification">Certificate Verification</a></li>
         <li><a href="add_workshop">Add workshop</a></li>
     </ul>
 </nav>

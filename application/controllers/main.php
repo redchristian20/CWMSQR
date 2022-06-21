@@ -8,13 +8,11 @@ class main extends CI_Controller {
             parent::__construct();
             $this->load->helper(array('form', 'url'));
     }
-
-
     //Function that loads the homepage
 	public function index()
 	{
 		$this->load->view('header');
-        $this->load->view('workshops');
+        $this->load->view('home');
         $this->load->view('footer');
 	}
 
@@ -24,24 +22,6 @@ class main extends CI_Controller {
         $this->load->view('add_workshop', array('error' => ' ' ));
         $this->load->view('footer');
     }
-
-    /*
-    public function qrgenerate()
-	{
-		$qrcode['red'] = false;
-		if(isset($_POST['submit'])){
-			$qrcode['red'] = true;
-			$size = "200x200";
-			$color = str_replace('#','','black');
-			$password = $_POST['password'];
-			$salt = bin2hex(openssl_random_pseudo_bytes(22));
-			$encrypted_password = md5($password . '' . $salt);
-			$data = $encrypted_password;
-			$qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
-			$qrcode['qr'] = $qr;
-			$this->load->view('main',$qrcode);
-		}
-    }*/
 
     public function add_workshop_to_database()
     {

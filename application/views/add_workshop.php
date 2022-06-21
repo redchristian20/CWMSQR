@@ -1,5 +1,4 @@
-<div class='add-workshop-section'>
-
+<div class='workshop-details-container-card'>
 
     <?php if(isset($errors)){echo $errors;}?>
     <?php if(isset($image_error)){echo $image_error;}?>
