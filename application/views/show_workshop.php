@@ -1,7 +1,6 @@
 <div class="workshop-details-container-card">
-
   <h3>Workshop Details</h3>
-  <p><img src="../uploads/<?= $workshop['event_poster_link']?>" class="workshop-banner" alt="Image"></p>
+  <p><img src="../uploads/<?= $workshop['event_poster_link']?>" class="workshop-banner" alt="Image" width="960px"></p>
   <p><strong>Name: </strong><?=$workshop['workshop_name']?></p>
   <p><strong>Description: </strong><?=$workshop['workshop_description']?></p>
   <p><strong>Venue: </strong><?=$workshop['venue']?></p>
@@ -13,5 +12,4 @@
         <input type="hidden" name="form_submitted" value="1" />
         <input type="submit" name="add_participants" value="Add Participants">
   </form>
-
 </div>

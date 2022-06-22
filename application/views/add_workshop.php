@@ -4,7 +4,9 @@
     <?php if(isset($image_error)){echo $image_error;}?>
     <h2>Workshop Event Creation</h2>
     <?php echo form_open_multipart('add_workshop_to_database');?>
-        <input type="file" name="userfile" value="Upload Event Poster" size="20" />
+        <div class="upload-image-container">
+            <input type="file" name="userfile" value="Upload Event Poster" size="20" />
+        </div>
         <label for="workshop_name">Workshop name:</label>
         <input type="text" name="workshop_name">
 
@@ -27,6 +29,6 @@
         <input type="time" name="end_time">
 
         <input type="hidden" name="form_submitted" value="1" />
-        <input type="submit" name="submit" value="Add Workshop">
+        <input type="submit" name="submit" value="Create">
     </form>
 </div>
