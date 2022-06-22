@@ -9,3 +9,12 @@
     width: 960px;
     font-family: 'Poppins', sans-serif;
   }
+  form *{
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: 400px;
+  }
+
+
+  

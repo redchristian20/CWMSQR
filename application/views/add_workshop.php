@@ -1,9 +1,8 @@
-<div class='workshop-details-container-card'>
+<div class='container-fluid d-block p-2'>
 
     <?php if(isset($errors)){echo $errors;}?>
     <?php if(isset($image_error)){echo $image_error;}?>
     <h2>Workshop Event Creation</h2>
-
     <?php echo form_open_multipart('add_workshop_to_database');?>
         <input type="file" name="userfile" value="Upload Event Poster" size="20" />
         <label for="workshop_name">Workshop name:</label>
@@ -30,6 +29,4 @@
         <input type="hidden" name="form_submitted" value="1" />
         <input type="submit" name="submit" value="Add Workshop">
     </form>
-    
-    
 </div>

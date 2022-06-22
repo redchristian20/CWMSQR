@@ -11,10 +11,22 @@ class main extends CI_Controller {
     //Function that loads the homepage
 	public function index()
 	{
-		$this->load->view('header');
-        $this->load->view('home');
+        $this->load->view('header');
+        $data['workshops'] = $this->showWorkshops();
+        $this->load->view('home',$data);
         $this->load->view('footer');
 	}
+
+    public function home()
+    {
+        $this->load->view('header');
+        $data['workshops'] = $this->showWorkshops();
+        $this->load->view('home',$data);
+        $this->load->view('footer');
+    }
+
+
+
 
     public function add_workshop()
     {
@@ -73,7 +85,10 @@ class main extends CI_Controller {
 
     public function workshops()
     {
-
+        $this->load->view('header');
+        $data['workshops'] = $this->showWorkshops();
+        $this->load->view('workshops',$data);
+        $this->load->view('footer');
     }
 
     public function manage_workshops()
@@ -110,6 +125,10 @@ class main extends CI_Controller {
         if($workshop_id == 'add_workshop')
         {
             redirect("add_workshop");
+        }
+        if($workshop_id == 'home')
+        {
+            redirect("home");
         }
     }
 }
