@@ -1,9 +1,3 @@
-<div class='card'>
-    <h2>Hello!</h2>
-    <p>Welcome to UC-Certification Management System (UC-CMS) where you can manage workshops and certificates</p>
-
-</div>
-
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -42,3 +36,20 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<div class='card'>
+    <h2>Hello!</h2>
+    <p>Welcome to UC-Certification Management System (UC-CMS) where you can manage workshops and certificates</p>
+</div>
+
+
+<?php
+        if(isset($workshops)){
+            foreach($workshops as $key => $val)
+            {?>
+                <img class="d-block w-100" src="./uploads/<?= $val['event_poster_link']?>" alt="<?= $val['workshop_name']?>">
+                <p><?= $val['workshop_name']?></p>
+<?php           
+            }
+        }
+?>
