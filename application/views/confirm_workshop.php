@@ -3,9 +3,7 @@
 <title>Confirm Workshop</title>
 </head>
 <body>
-
-<h2>Confirm workshop</h2>
-
+    <h2>Confirm workshop</h2>
     <img src="./uploads/<?php if(isset($file_name)){echo $file_name;} ?>" class="img-fluid" alt="Image" width="960" height="540">
     <img src="<?php if(isset($qr)){echo $qr;} ?>" class="img-fluid" alt="QR image">
     <p><?php if(isset($workshop_name)){echo $workshop_name;} ?></p>

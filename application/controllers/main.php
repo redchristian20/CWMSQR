@@ -25,13 +25,18 @@ class main extends CI_Controller {
         $this->load->view('footer');
     }
 
-
-
-
     public function add_workshop()
     {
         $this->load->view('header');
         $this->load->view('add_workshop', array('error' => ' ' ));
+        $this->load->view('footer');
+    }
+
+    public function edit_workshop($workshop_id)
+    {
+        $this->load->model("workshop");
+        $this->load->view('header');
+        $this->load->view('edit_workshop', array('error' => ' ' ));
         $this->load->view('footer');
     }
 
@@ -129,6 +134,11 @@ class main extends CI_Controller {
         if($workshop_id == 'home')
         {
             redirect("home");
+        }
+
+        if($workshop_id == 'workshops')
+        {
+            redirect("workshops");
         }
     }
 }

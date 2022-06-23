@@ -63,8 +63,12 @@ $route['do_upload'] = 'main/do_upload';
 $route['manage_workshops'] = 'main/manage_workshops';
 $route['show_workshop/(:any)'] = 'main/show_workshop/$1';
 
+$route['edit_workshop/(:any)'] = 'main/edit_workshop/$1';
+
 $route['add_workshop'] = 'main/add_workshop'; 
 $route['add_workshop_to_database'] = 'main/add_workshop_to_database'; 
+
+
 
 
 

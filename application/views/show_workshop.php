@@ -8,6 +8,7 @@
   <p><strong>End date: </strong><?=$workshop['end_date']?></p>
   <p><strong>Start: </strong><?=date('h:i A',strtotime($workshop['start_time']))?></p>
   <p><strong>End: </strong><?=date('h:i A',strtotime($workshop['end_time']))?></p>
+  <p><img src="<?=$workshop['qr_code_link']?>" class="img-fluid"></p>
   <form action="confirm_workshop" method="post">
         <input type="hidden" name="form_submitted" value="1" />
         <input type="submit" name="add_participants" value="Add Participants">
