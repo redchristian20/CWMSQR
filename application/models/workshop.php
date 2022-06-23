@@ -9,6 +9,11 @@
         {
             return $this->db->query("SELECT * FROM workshops WHERE id=?", array($user_id))->row_array();
         }
+
+        function get_workshop_by_name($workshop_name)
+        {
+            return $this->db->query("SELECT * FROM workshops WHERE workshop_name=?", array($workshop_name))->row_array();
+        }
  
 
         function add_workshop($workshop)
