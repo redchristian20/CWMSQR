@@ -12,14 +12,14 @@
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="./uploads/<?= $val['event_poster_link']?>" alt="<?= $val['workshop_name']?>">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-light bg-success"><?= $val['workshop_name']?></h5>
+                        <h5 class="text-light"><?= $val['workshop_name']?></h5>
                     </div>
                 </div>
             <?php }else{?>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="./uploads/<?= $val['event_poster_link']?>" alt="<?= $val['workshop_name']?>">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-light bg-success"><?= $val['workshop_name']?></h5>
+                        <h5 class="text-light"><?= $val['workshop_name']?></h5>
                     </div>
                 </div>
 <?php           }

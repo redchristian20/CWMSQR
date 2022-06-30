@@ -17,26 +17,6 @@
             <input type="text" name="workshop_description">
         </div>
         <div class="form-group">
-            <label for="venue">Venue:</label>
-            <input type="text" name="venue">
-        </div>
-        <div class="form-group">
-            <label for="start_date">Start date:</label>
-            <input type="date" name="start_date">
-        </div>
-        <div class="form-group">
-            <label for="end_date">End date:</label>
-            <input type="date" name="end_date">
-        </div>
-        <div class="form-group">
-            <label for="start_time">Start time:</label>
-            <input type="time" name="start_time">
-        </div>  
-        <div class="form-group">
-            <label for="end_time">End time:</label>
-            <input type="time" name="end_time">
-        </div>
-        <div class="form-group">
             <input type="submit" name="submit" value="Create">
         </div>
     </form>

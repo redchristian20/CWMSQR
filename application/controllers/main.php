@@ -65,11 +65,11 @@ class main extends CI_Controller {
 
         $this->form_validation->set_rules("workshop_name", "Workshop name", "trim|required");
         $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|required");
-        $this->form_validation->set_rules("venue", "Venue", "trim|required");
-        $this->form_validation->set_rules("start_date", "Start date", "trim|required");
-        $this->form_validation->set_rules("end_date", "End date", "trim|required");
-        $this->form_validation->set_rules("start_time", "Start time", "trim|required");
-        $this->form_validation->set_rules("end_time", "End time", "trim|required");
+        //$this->form_validation->set_rules("venue", "Venue", "trim|required");
+        //$this->form_validation->set_rules("start_date", "Start date", "trim|required");
+        //$this->form_validation->set_rules("end_date", "End date", "trim|required");
+        //$this->form_validation->set_rules("start_time", "Start time", "trim|required");
+        //$this->form_validation->set_rules("end_time", "End time", "trim|required");
 
         //function to upload files
         $config['upload_path']          = './uploads/';
@@ -91,15 +91,15 @@ class main extends CI_Controller {
         {
             $size = "200x200";
             $color = str_replace('#','','black');
-            $data = "192.168.0.192/show_workshop/".$this->input->post('workshop_name');
-            $qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
-            $data = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'),"venue" => $this->input->post('venue'),"start_date" => $this->input->post('start_date'), "end_date" => $this->input->post('end_date'), "start_time" => $this->input->post('start_time'), "end_time" => './uploads/'.$this->input->post('end_time'),'event_poster_link' => $this->upload->data('file_name'),'qr_code_link' => $qr);
-            //$this->load->view('confirm_workshop', $data);
-
-            //Loads the user model
+            $workshop_link = uniqid('w');
+            $qr = base_url().'show_workshop/'.$workshop_link;
+            $qr_link = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$qr.'&chco='.$color;
+            $data = array("workshop_name" => $this->input->post('workshop_name'), "workshop_description" => $this->input->post('workshop_description'), 'event_poster_link' => $this->upload->data('file_name'),'workshop_link' => $workshop_link, 'qr_link' => $qr_link);
+            //Loads the workshop model
             $this->load->model("workshop");
             $add_workshop = $this->workshop->add_workshop($data);
-            if($add_workshop) {
+            if($add_workshop)
+            {
                 redirect("/");
             }
         }
@@ -133,14 +133,17 @@ class main extends CI_Controller {
     public function show_workshop($workshop_id)
     {
         $this->load->model("workshop");
-        $data['workshop'] = $this->workshop->get_workshop_by_id($workshop_id);
-        if(!empty($data))
+        if($data['workshop'] = $this->workshop->get_workshop_by_id($workshop_id))
         {
             $this->load->view('header');
             $this->load->view('show_workshop',$data);
             $this->load->view('footer');
+        }else if($data['workshop'] = $this->workshop->get_workshop_by_workshop_link($workshop_id)){
+            $this->load->view('header');
+            $this->load->view('show_workshop',$data);
+            $this->load->view('footer');
+            
         }
-
         if($workshop_id == 'manage_workshops')
         {
             redirect("manage_workshops");
@@ -157,9 +160,6 @@ class main extends CI_Controller {
         else if($workshop_id == 'workshops')
         {
             redirect("workshops");
-        }
-        else{
-            $data['workshop'] = $this->workshop->get_workshop_by_name($workshop_id);
         }
     }
 }
