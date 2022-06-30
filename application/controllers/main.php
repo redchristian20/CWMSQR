@@ -16,7 +16,6 @@ class main extends CI_Controller {
         $this->load->view('home',$data);
         $this->load->view('footer');
 	}
-
     public function home()
     {
         $this->load->view('header');
@@ -24,14 +23,12 @@ class main extends CI_Controller {
         $this->load->view('home',$data);
         $this->load->view('footer');
     }
-
     public function add_workshop()
     {
         $this->load->view('header');
         $this->load->view('add_workshop', array('error' => ' ' ));
         $this->load->view('footer');
     }
-
     public function edit_workshop($workshop_id)
     {
         $this->load->model("workshop");
@@ -57,12 +54,10 @@ class main extends CI_Controller {
             redirect("workshops");
         }
     }
-
     public function add_workshop_to_database()
     {
         //Loads the form validation library
         $this->load->library("form_validation");
-
         $this->form_validation->set_rules("workshop_name", "Workshop name", "trim|required");
         $this->form_validation->set_rules("workshop_description", "Workshop description", "trim|required");
         //$this->form_validation->set_rules("venue", "Venue", "trim|required");
@@ -70,16 +65,13 @@ class main extends CI_Controller {
         //$this->form_validation->set_rules("end_date", "End date", "trim|required");
         //$this->form_validation->set_rules("start_time", "Start time", "trim|required");
         //$this->form_validation->set_rules("end_time", "End time", "trim|required");
-
         //function to upload files
         $config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 0;
         $config['max_width']            = 0;
         $config['max_height']           = 0;
-
         $this->load->library('upload', $config);
-
         if (!$this->upload->do_upload('userfile') || $this->form_validation->run() === FALSE)
         {
                 $error = array('image_error' => $this->upload->display_errors(), 'errors' => validation_errors());
@@ -105,7 +97,6 @@ class main extends CI_Controller {
         }
             
     }
-
     public function workshops()
     {
         $this->load->view('header');
@@ -121,15 +112,12 @@ class main extends CI_Controller {
         $this->load->view('workshops',$data);
         $this->load->view('footer');
     }
-
     public function showWorkshops()
     {
         $this->load->model("workshop");
 		$workshops = $this->workshop->get_all_workshops();
 		return $workshops;
     }
-    
-
     public function show_workshop($workshop_id)
     {
         $this->load->model("workshop");
@@ -162,11 +150,14 @@ class main extends CI_Controller {
             }
         }    
     }
-
     public function add_participants($workshop_id)
     {
         $this->load->view('header');
         $this->load->view('add_participants');
         $this->load->view('footer');
+    }
+    public function add_participant_to_workshop()
+    {
+        $this->load->model('participant');
     }
 }

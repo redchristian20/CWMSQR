@@ -2,7 +2,6 @@
 
     <?php if(isset($errors)){echo $errors;}?>
     <?php if(isset($image_error)){echo $image_error;}?>
-    
     <form action="add_participant_to_workshop" method="post">
         <div class="form-group">
             <label for="full_name">Full name:</label>

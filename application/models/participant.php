@@ -11,7 +11,7 @@
         }
         function add_participants($participant)
         {
-            $query = "INSERT INTO participants(full_name, email, created_at, updated_at) VALUES (?,?,?,?)";
+            $query = "INSERT INTO participants(full_name, email, workshop_id, created_at, updated_at) VALUES (?,?,?,?,?)";
             $values = array($participant['full_name'],$participant['email'], date("Y-m-d, H:i:s"), date("Y-m-d, H:i:s")); 
             return $this->db->query($query, $values);
         }

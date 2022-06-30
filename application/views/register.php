@@ -1,7 +1,6 @@
     <div class='add-user-section'>
         <h2>User Registration</h2>
         <form action="register_user" method="post">
-
             <label for="username">Username:</label>
             <input type="text" name="username">
 
@@ -32,13 +31,10 @@
             <label for="contact_number">Contact Number:</label>
             <input type="text" name="contact_number">
 
-
             <input type="hidden" name="form_submitted" value="1" />
             <input type="submit" name="register" value="Register">
         </form>
-
     </div>
-
     <?php
         if(isset($errors)){
             echo $errors;
