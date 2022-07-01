@@ -159,5 +159,6 @@ class main extends CI_Controller {
     public function add_participant_to_workshop()
     {
         $this->load->model('participant');
+        echo "red";
     }
 }

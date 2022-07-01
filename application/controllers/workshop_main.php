@@ -42,27 +42,4 @@ class workshop_main extends CI_Controller {
   }
 
 
-
-
-
-	/*QR CODE GENERATION TODO
-	public function qrgenerate()
-	{
-		$qrcode['red'] = false;
-		if(isset($_POST['submit'])){
-			$qrcode['red'] = true;
-			$size = "200x200";
-			$color = str_replace('#','','black');
-			$password = $_POST['password'];
-			$salt = bin2hex(openssl_random_pseudo_bytes(22));
-			$encrypted_password = md5($password . '' . $salt);
-			$data = $encrypted_password;
-			$qr = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$data.'&chco='.$color;
-			$qrcode['qr'] = $qr;
-			$this->load->view('main',$qrcode);
-		}
-	}
-	*/
-
-
 }
