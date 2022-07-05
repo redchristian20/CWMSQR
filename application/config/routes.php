@@ -51,8 +51,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-$route['default_controller'] = 'main';
-$route['home'] = 'main/home';
+$route['default_controller'] = 'Main';
+
+$route['create_event'] = 'Main/create_event';
+
+$route['new_workshop'] = 'Main/new_workshop';
+$route['insert_workshop'] = 'Main/insert_workshop';
+
+$route['view_workshops'] = 'Main/view_workshops';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
