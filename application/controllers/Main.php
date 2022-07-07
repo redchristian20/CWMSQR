@@ -18,6 +18,24 @@ class Main extends CI_Controller {
         $this->load->view('footer');
 	}
 
+    public function home()
+    {
+        $this->load->model("Workshops_model");
+        $data['workshops'] = $this->Workshops_model->get_workshops();
+        $this->load->view('header');
+        $this->load->view('home',$data);
+        $this->load->view('footer');
+    }
+
+    public function admin_login()
+    {
+        $this->load->model("Workshops_model");
+        $data['workshops'] = $this->Workshops_model->get_workshops();
+        $this->load->view('header');
+        $this->load->view('admin_login',$data);
+        $this->load->view('footer');
+    }
+
     public function create_event()
     {
         $this->load->view('header');
