@@ -64,5 +64,8 @@ $route['insert_workshop'] = 'Main/insert_workshop';
 
 $route['view_workshops'] = 'Main/view_workshops';
 
+$route['show_workshops/'] = 'Main/view_workshops';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

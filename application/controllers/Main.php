@@ -14,7 +14,7 @@ class Main extends CI_Controller {
         $this->load->model("Workshops_model");
         $data['workshops'] = $this->Workshops_model->get_workshops();
         $this->load->view('header');
-        $this->load->view('view_workshops',$data);
+        $this->load->view('tests',$data);
         $this->load->view('footer');
 	}
 
@@ -113,5 +113,10 @@ class Main extends CI_Controller {
                 $this->load->view('footer');
             }
         }
+    }
+
+    public function show_workshop($workshop_id)
+    {
+
     }
 }
