@@ -43,6 +43,16 @@ class Workshops_model extends CI_Model
         $this->updated_at = time();
         $this->db->update('workshops', $this, array('id' => $workshop_array('id')));
     }
+
+    public function get_workshop_by_id($workshop_id)
+    {
+        $query = $this->db->select('*')->where('id', $workshop_id)->get('workshops');
+        $row = $query->row_array();
+        if (isset($row))
+        {
+            return $row;
+        }
+    }
 }
 
 

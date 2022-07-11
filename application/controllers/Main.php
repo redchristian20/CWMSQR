@@ -117,6 +117,13 @@ class Main extends CI_Controller {
 
     public function show_workshop($workshop_id)
     {
-
+        $this->load->model("Workshops_model");
+        $data['workshop'] = $this->Workshops_model->get_workshop_by_id($workshop_id);
+        if(isset($data))
+        {
+            $this->load->view('header');
+            $this->load->view('show_workshop', $data);
+            $this->load->view('footer');
+        }
     }
 }
