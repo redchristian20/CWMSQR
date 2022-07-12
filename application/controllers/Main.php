@@ -18,7 +18,6 @@ class Main extends CI_Controller {
         $this->load->view('footer');
 	}
 
-
     public function tests()
     {
         $this->load->model("Workshops_model");
@@ -90,7 +89,7 @@ class Main extends CI_Controller {
             $size = "250x250";
             $color = str_replace('#','','black');
             $workshop_link = uniqid('w');
-            $qr = base_url().'show_workshop/'.$workshop_link;
+            $qr = base_url().'show_workshop_by_link/'.$workshop_link;
             $qr_link = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$qr.'&chco='.$color;
             $data = array(
             "workshop_name" => $this->input->post('workshop_name'),
@@ -125,5 +124,22 @@ class Main extends CI_Controller {
             $this->load->view('show_workshop', $data);
             $this->load->view('footer');
         }
+    }
+
+    public function show_workshop_by_link($workshop_link)
+    {
+        $this->load->model("Workshops_model");
+        $data['workshop'] = $this->Workshops_model->get_workshop_by_link($workshop_link);
+        if(isset($data))
+        {
+            $this->load->view('header');
+            $this->load->view('show_workshop', $data);
+            $this->load->view('footer');
+        }
+    }
+
+    public function add_participants($workshop_id)
+    {
+        
     }
 }

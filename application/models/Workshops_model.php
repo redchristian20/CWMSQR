@@ -53,9 +53,17 @@ class Workshops_model extends CI_Model
             return $row;
         }
     }
+
+    public function get_workshop_by_link($workshop_link)
+    {
+        $query = $this->db->select('*')->where('workshop_link', $workshop_link)->get('workshops');
+        $row = $query->row_array();
+        if (isset($row))
+        {
+            return $row;
+        }
+    }
 }
-
-
 ?>
 
 
