@@ -7,6 +7,8 @@ class Main extends CI_Controller {
     {
             parent::__construct();
             $this->load->helper(array('form', 'url'));
+            $this->load->model('csv_import_model');
+            $this->load->library('csvimport');
     }
     //Function that loads the homepage
 	public function index()
