@@ -68,6 +68,8 @@ $route['show_workshop/(:any)'] = 'Main/show_workshop/$1';
 
 $route['show_workshop_by_link/(:any)'] = 'Main/show_workshop_by_link/$1';
 
+$route['add_participants/(:any)'] = 'Main/add_participants/$1';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
