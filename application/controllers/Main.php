@@ -140,6 +140,8 @@ class Main extends CI_Controller {
 
     public function add_participants($workshop_id)
     {
-        
+        $this->load->view('header');
+        $this->load->view('add_participants',array('error' => ' ','success' => ' '));
+        $this->load->view('footer');
     }
 }
