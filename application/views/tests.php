@@ -1,4 +1,3 @@
-
 <?php
     if(isset($workshops)){
         foreach($workshops as $key => $val)
