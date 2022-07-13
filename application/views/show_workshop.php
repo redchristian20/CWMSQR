@@ -9,6 +9,7 @@
     <p><strong>Venue: </strong><?=$workshop['workshop_venue']?></p>
     <p><strong>Link: </strong><?=$workshop['workshop_link']?></p>
     <p><img src="<?=$workshop['workshop_qr_link']?>" class="img-fluid"></p>
+    <div id="imported_csv_data"></div>
   <form action="../add_participants/<?=$workshop['id']?>" method="post">
     <input type="submit" name="add_participants" value="Add Participants">
   </form>

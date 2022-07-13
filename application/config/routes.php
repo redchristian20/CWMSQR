@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['default_controller'] = 'Csv_import';
+$route['default_controller'] = 'Main';
 $route['home'] = 'Main/home';
 
 $route['tests'] = 'Main/tests';
@@ -67,6 +67,7 @@ $route['show_workshop/(:any)'] = 'Main/show_workshop/$1';
 $route['show_workshop_by_link/(:any)'] = 'Main/show_workshop_by_link/$1';
 
 $route['add_participants/(:any)'] = 'Main/add_participants/$1';
+$route['csv_import/load_data/(:any)'] = 'Csv_import/load_data/$1';
 
 
 $route['404_override'] = '';

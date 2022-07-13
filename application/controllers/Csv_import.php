@@ -9,16 +9,11 @@ class Csv_import extends CI_Controller {
 		$this->load->library('csvimport');
 	}
 
-	function index()
+	function load_data($workshop_id)
 	{
-		$this->load->view('csv_import');
-	}
-
-	function load_data()
-	{
-		$result = $this->csv_import_model->select();
+		$result = $this->csv_import_model->select($workshop_id);
 		$output = '
-		 <h3 align="center">Imported User Details from CSV File</h3>
+		 <h3>Participants</h3>
         <div class="table-responsive">
         	<table class="table table-bordered table-striped">
         		<tr>
@@ -27,6 +22,7 @@ class Csv_import extends CI_Controller {
         			<th>Last Name</th>
         			<th>Phone</th>
         			<th>Email Address</th>
+					<th>Workshop ID</th>
         		</tr>
 		';
 		$count = 0;
@@ -34,14 +30,14 @@ class Csv_import extends CI_Controller {
 		{
 			foreach($result->result() as $row)
 			{
-				$count = $count + 1;
 				$output .= '
 				<tr>
-					<td>'.$count.'</td>
+					<td>'.$row->id.'</td>
 					<td>'.$row->first_name.'</td>
 					<td>'.$row->last_name.'</td>
 					<td>'.$row->phone.'</td>
 					<td>'.$row->email.'</td>
+					<td>'.$row->workshop_id.'</td>
 				</tr>
 				';
 			}
@@ -58,7 +54,7 @@ class Csv_import extends CI_Controller {
 		echo $output;
 	}
 
-	function import()
+	function import($workshop_id)
 	{
 		$file_data = $this->csvimport->get_array($_FILES["csv_file"]["tmp_name"]);
 		foreach($file_data as $row)
@@ -67,7 +63,8 @@ class Csv_import extends CI_Controller {
 				'first_name'	=>	$row["First Name"],
         		'last_name'		=>	$row["Last Name"],
         		'phone'			=>	$row["Phone"],
-        		'email'			=>	$row["Email"]
+        		'email'			=>	$row["Email"],
+				'workshop_id'	=>	$workshop_id
 			);
 		}
 		$this->csv_import_model->insert($data);

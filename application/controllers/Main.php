@@ -13,11 +13,14 @@ class Main extends CI_Controller {
     //Function that loads the homepage
 	public function index()
 	{
+        
         $this->load->model("Workshops_model");
         $data['workshops'] = $this->Workshops_model->get_workshops();
         $this->load->view('header');
         $this->load->view('tests',$data);
         $this->load->view('footer');
+        
+        //$this->load->view('csv_import');
 	}
 
     public function tests()
@@ -142,68 +145,13 @@ class Main extends CI_Controller {
 
     public function add_participants($workshop_id)
     {
-        $this->load->view('header');
-        $this->load->view('add_participants',array('error' => ' ','success' => ' '));
-        $this->load->view('footer');
+        $this->load->model("Workshops_model");
+        $data['workshop'] = $this->Workshops_model->get_workshop_by_id($workshop_id);
+        if(isset($data))
+        {
+            $this->load->view('header');
+            $this->load->view('add_participants', $data);
+            $this->load->view('footer', $data);
+        }
     }
-
-    function load_data()
-	{
-		$result = $this->csv_import_model->select();
-		$output = '
-		 <h3 align="center">Imported User Details from CSV File</h3>
-        <div class="table-responsive">
-        	<table class="table table-bordered table-striped">
-        		<tr>
-        			<th>Sr. No</th>
-        			<th>First Name</th>
-        			<th>Last Name</th>
-        			<th>Phone</th>
-        			<th>Email Address</th>
-        		</tr>
-		';
-		$count = 0;
-		if($result->num_rows() > 0)
-		{
-			foreach($result->result() as $row)
-			{
-				$count = $count + 1;
-				$output .= '
-				<tr>
-					<td>'.$count.'</td>
-					<td>'.$row->first_name.'</td>
-					<td>'.$row->last_name.'</td>
-					<td>'.$row->phone.'</td>
-					<td>'.$row->email.'</td>
-				</tr>
-				';
-			}
-		}
-		else
-		{
-			$output .= '
-			<tr>
-	    		<td colspan="5" align="center">Data not Available</td>
-	    	</tr>
-			';
-		}
-		$output .= '</table></div>';
-		echo $output;
-	}
-
-	function import()
-	{
-		$file_data = $this->csvimport->get_array($_FILES["csv_file"]["tmp_name"]);
-		foreach($file_data as $row)
-		{
-			$data[] = array(
-				'first_name'	=>	$row["First Name"],
-        		'last_name'		=>	$row["Last Name"],
-        		'phone'			=>	$row["Phone"],
-        		'email'			=>	$row["Email"]
-			);
-		}
-		$this->csv_import_model->insert($data);
-	}
-
 }
