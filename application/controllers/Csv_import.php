@@ -13,8 +13,8 @@ class Csv_import extends CI_Controller {
 	{
 		$result = $this->csv_import_model->select($workshop_id);
 		$output = '
-		 <h3>Participants</h3>
-        <div class="table-responsive">
+		 	<h3>Participants</h3>
+        	<div class="table-responsive">
         	<table class="table table-bordered table-striped">
         		<tr>
         			<th>Sr. No</th>
