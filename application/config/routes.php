@@ -57,6 +57,8 @@ $route['admin_login'] = 'Main/admin_login';
 
 $route['create_event'] = 'Main/create_event';
 
+$route['certificate_verification'] = 'Main/certificate_verification';
+
 $route['new_workshop'] = 'Main/new_workshop';
 $route['insert_workshop'] = 'Main/insert_workshop';
 

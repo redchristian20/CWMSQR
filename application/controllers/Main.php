@@ -50,6 +50,15 @@ class Main extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function certificate_verification()
+    {
+        $this->load->model("Workshops_model");
+        $data['attendees'] = $this->csv_import_model->select_all();
+        $this->load->view('header');
+        $this->load->view('certificate_verification',$data);
+        $this->load->view('footer');
+    }
+
     public function create_event()
     {
         $this->load->view('header');
@@ -143,9 +152,9 @@ class Main extends CI_Controller {
             redirect("home");
         }
 
-        else if($workshop_id == 'workshops')
+        else if($workshop_id == 'view_workshops')
         {
-            redirect("workshops");
+            redirect("view_workshops");
         }
     }
 
@@ -184,9 +193,14 @@ class Main extends CI_Controller {
             redirect("home");
         }
 
-        else if($workshop_id == 'workshops')
+        else if($workshop_id == 'view_workshops')
         {
-            redirect("workshops");
+            redirect("view_workshops");
+        }
+
+        else if($workshop_id == 'certificate_verification')
+        {
+            redirect("certificate_verification");
         }
     }
 }

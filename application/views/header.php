@@ -18,7 +18,7 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-start">
-        <a class="navbar-brand" href="home"><img class="d-block w-100" src="../assets/img/uc_logo.png" alt="UC Logo"></a>
+        <a class="navbar-brand" href="home"><img class="d-block w-100" src="../assets/img/intto.png" alt="UC Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,7 +28,7 @@
                     <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="view_workshops">Workshops</a>
+                    <a class="nav-link" href="view_workshops">Events</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="certificate_verification">Certificate Verification</a>

@@ -7,6 +7,12 @@ class Csv_import_model extends CI_Model
     return $query;
  }
 
+ function select_all()
+ {
+   $query =$this->db->order_by('id', 'ASC')->get('tbl_user');
+    return $query;
+ }
+
  function insert($data)
  {
   $this->db->insert_batch('tbl_user', $data);

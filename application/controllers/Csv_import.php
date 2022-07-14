@@ -58,8 +58,10 @@ class Csv_import extends CI_Controller {
 		$insertid = 0;
 		foreach($file_data as $row)
 		{
+			$size = "250x250";
+			$color = str_replace('#','','black');
 			$participant_code = uniqid($insertid++);
-			$qr = base_url().'show_workshop_by_link/'.$participant_code;
+			$qr = base_url().'show_certificate/'.$participant_code;
 			$qr_link = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$qr.'&chco='.$color;
 			$data[] = array(
 				'first_name'	=>	$row["First Name"],
