@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 14, 2022 at 03:08 AM
+-- Generation Time: Jul 14, 2022 at 06:09 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -20,36 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `cwmsqr`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `certificates`
---
-
-CREATE TABLE `certificates` (
-  `id` int(11) NOT NULL,
-  `workshop_id` int(11) NOT NULL,
-  `attendee_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `certificate_qr` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `participants`
---
-
-CREATE TABLE `participants` (
-  `id` int(11) NOT NULL,
-  `full_name` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `workshop_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -124,12 +94,6 @@ INSERT INTO `workshops` (`id`, `workshop_name`, `workshop_description`, `worksho
 --
 
 --
--- Indexes for table `participants`
---
-ALTER TABLE `participants`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -144,12 +108,6 @@ ALTER TABLE `workshops`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `participants`
---
-ALTER TABLE `participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

@@ -203,4 +203,39 @@ class Main extends CI_Controller {
             redirect("certificate_verification");
         }
     }
+
+    public function show_certificate($certificate_code)
+    {
+        $this->load->model("Certificates_model");
+        $data['certificate_data'] = $this->Certificates_model->get_certificates_by_code($certificate_code);
+        if(isset($data))
+        {
+            $this->load->view('header');
+            $this->load->view('show_certificate', $data);
+            $this->load->view('footer', $data);
+        }
+        if($certificate_code == 'manage_workshops')
+        {
+            redirect("manage_workshops");
+        }
+        else if($certificate_code == 'add_workshop')
+        {
+            redirect("add_workshop");
+        }
+        else if($certificate_code == 'home')
+        {
+            redirect("home");
+        }
+
+        else if($certificate_code == 'view_workshops')
+        {
+            redirect("view_workshops");
+        }
+
+        else if($certificate_code == 'certificate_verification')
+        {
+            redirect("certificate_verification");
+        }
+
+    }
 }

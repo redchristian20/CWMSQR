@@ -71,6 +71,8 @@ $route['show_workshop_by_link/(:any)'] = 'Main/show_workshop_by_link/$1';
 $route['add_participants/(:any)'] = 'Main/add_participants/$1';
 $route['csv_import/load_data/(:any)'] = 'Csv_import/load_data/$1';
 
+$route['show_certificate/(:any)'] = 'Main/show_certificate/$1';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
