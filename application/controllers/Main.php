@@ -129,6 +129,24 @@ class Main extends CI_Controller {
             $this->load->view('show_workshop', $data);
             $this->load->view('footer');
         }
+
+        if($workshop_id == 'manage_workshops')
+        {
+            redirect("manage_workshops");
+        }
+        else if($workshop_id == 'add_workshop')
+        {
+            redirect("add_workshop");
+        }
+        else if($workshop_id == 'home')
+        {
+            redirect("home");
+        }
+
+        else if($workshop_id == 'workshops')
+        {
+            redirect("workshops");
+        }
     }
 
     public function show_workshop_by_link($workshop_link)
@@ -152,6 +170,23 @@ class Main extends CI_Controller {
             $this->load->view('header');
             $this->load->view('add_participants', $data);
             $this->load->view('footer', $data);
+        }
+        if($workshop_id == 'manage_workshops')
+        {
+            redirect("manage_workshops");
+        }
+        else if($workshop_id == 'add_workshop')
+        {
+            redirect("add_workshop");
+        }
+        else if($workshop_id == 'home')
+        {
+            redirect("home");
+        }
+
+        else if($workshop_id == 'workshops')
+        {
+            redirect("workshops");
         }
     }
 }

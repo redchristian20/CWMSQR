@@ -5,7 +5,6 @@
 $(document).ready(function(){
 
 	load_data();
-
 	function load_data()
 	{
 		$.ajax({
@@ -17,7 +16,6 @@ $(document).ready(function(){
 			}
 		})
 	}
-
 	$('#import_csv').on('submit', function(event){
 		event.preventDefault();
 		$.ajax({

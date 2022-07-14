@@ -1,15 +1,17 @@
-<div class="workshop-details-container-card">
+<div class="container-fluid mx-3">
   <h3>Workshop Details</h3>
-    <p><img src="../uploads/<?= $workshop['workshop_poster_link']?>" class="workshop-banner" alt="Image" width="960px"></p>
-    <p><strong>Name: </strong><?=$workshop['workshop_name']?></p>
-    <p><strong>Description: </strong><?=$workshop['workshop_description']?></p>
-    <p><strong>Speaker: </strong><?=$workshop['workshop_speaker']?></p>
-    <p><strong>Date: </strong><?=$workshop['workshop_date']?></p>
-    <p><strong>Time: </strong><?=$workshop['workshop_time']?></p>
-    <p><strong>Venue: </strong><?=$workshop['workshop_venue']?></p>
-    <p><strong>Link: </strong><?=$workshop['workshop_link']?></p>
-    <p><img src="<?=$workshop['workshop_qr_link']?>" class="img-fluid"></p>
-
+  <img src="../uploads/<?= $workshop['workshop_poster_link']?>" class="img-fluid" alt="Image" width="100%" height="auto">
+    <div class="mx-auto" style="width: 1280px">
+      <p><strong>Name: </strong><?=$workshop['workshop_name']?></p>
+      <p><strong>Description: </strong><?=$workshop['workshop_description']?></p>
+      <p><strong>Speaker: </strong><?=$workshop['workshop_speaker']?></p>
+      <p><strong>Date: </strong><?=$workshop['workshop_date']?></p>
+      <p><strong>Time: </strong><?=$workshop['workshop_time']?></p>
+      <p><strong>Venue: </strong><?=$workshop['workshop_venue']?></p>
+      <p><strong>Link: </strong><?=$workshop['workshop_link']?></p>
+      <p><strong>Workshop QR Code</p>
+      <img src="<?=$workshop['workshop_qr_link']?>" class="img-fluid">
+    </div>
 </div>
 <div class="container box">
 	<form method="post" id="import_csv" enctype="multipart/form-data">

@@ -10,17 +10,11 @@
             foreach($workshops as $key => $val)
             {if($key == 0){?>
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="./uploads/<?= $val['event_poster_link']?>" alt="<?= $val['workshop_name']?>">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-light"><?= $val['workshop_name']?></h5>
-                    </div>
+                    <img class="d-block w-100" src="./uploads/<?= $val['workshop_poster_link']?>" alt="<?= $val['workshop_name']?>">
                 </div>
             <?php }else{?>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./uploads/<?= $val['event_poster_link']?>" alt="<?= $val['workshop_name']?>">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-light"><?= $val['workshop_name']?></h5>
-                    </div>
+                    <img class="d-block w-100" src="./uploads/<?= $val['workshop_poster_link']?>" alt="<?= $val['workshop_name']?>">
                 </div>
 <?php           }
             }
@@ -36,21 +30,21 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class=''>
+<div class='m-3'>
     <h2>Hello!</h2>
     <p>Welcome to UC-Certification Management System (UC-CMS) where you can manage workshops and certificates</p>
 </div>
 
-        <div class="row">
+        <div class="row m-3">
 <?php
         if(isset($workshops)){
             foreach($workshops as $key => $val)
             {?>
               <div class="col-sm">
-                <img class="d-block w-100" src="./uploads/<?= $val['event_poster_link']?>" alt="<?= $val['workshop_name']?>">
+                <img class="d-block w-100" src="./uploads/<?= $val['workshop_poster_link']?>" alt="<?= $val['workshop_name']?>">
                 <p><?= $val['workshop_name']?></p>
                 <form action="show_workshop/<?=$val['id']?>" class="d-flex justify-content-center" method="post">
-                    <input type="submit" class="btn btn-success " name="show_workshop" value="View">
+                    <input type="submit" class="btn btn-success btn-block" name="show_workshop" value="View">
                 </form>
               </div>
 <?php         
