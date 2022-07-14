@@ -1,6 +1,6 @@
-<div class="workshop-details-container-card">
+<div class="container-fluid mx-3">
   <h3>Workshop Details</h3>
-    <p><img src="../uploads/<?= $workshop['workshop_poster_link']?>" class="workshop-banner" alt="Image" width="960px"></p>
+    <p><img src="../uploads/<?= $workshop['workshop_poster_link']?>" class="img-fluid" alt="Image" width="100%" height="auto"></p>
     <p><strong>Name: </strong><?=$workshop['workshop_name']?></p>
     <p><strong>Description: </strong><?=$workshop['workshop_description']?></p>
     <p><strong>Speaker: </strong><?=$workshop['workshop_speaker']?></p>

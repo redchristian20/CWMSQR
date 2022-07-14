@@ -46,7 +46,7 @@ class Csv_import extends CI_Controller {
 		{
 			$output .= '
 			<tr>
-	    		<td colspan="5" align="center">Data not Available</td>
+	    		<td colspan="6" align="center">Data not Available</td>
 	    	</tr>
 			';
 		}
