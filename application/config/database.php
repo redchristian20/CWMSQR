@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
+	'hostname' => 'us-cdbr-east-06.cleardb.net',
+	'username' => 'bba0f30b652040',
+	'password' => '70b9b16f',
 	'database' => 'cwmsqr',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
