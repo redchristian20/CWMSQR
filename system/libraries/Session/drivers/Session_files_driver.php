@@ -98,7 +98,7 @@ class CI_Session_files_driver extends CI_Session_driver implements SessionHandle
 	 * @param	array	$params	Configuration parameters
 	 * @return	void
 	 */
-	#[\ReturnTypeWillChange]
+	
 	public function __construct(&$params)
 	{
 		parent::__construct($params);
