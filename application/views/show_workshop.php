@@ -18,5 +18,4 @@
     <input type="submit" name="add_participants" value="Add Participants" class="btn btn-success">
   </form>
   <div id="imported_csv_data" class="mx-auto" style="width: 1280px"></div>
-  
 </div>
