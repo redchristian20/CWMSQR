@@ -14,7 +14,7 @@
       <p><strong>Event QR:</p>
       <p><img src="<?=$workshop['workshop_qr_link']?>" class="img-fluid"></p>
   </div>
-  <form action="../add_participants/<?=$workshop['id']?>" method="post" class="text-center m-3">
+  <form action="<?=base_url()?>/add_participants/<?=$workshop['id']?>" method="post" class="text-center m-3">
     <input type="submit" name="add_participants" value="Add Participants" class="btn btn-success">
   </form>
   <div id="imported_csv_data" class="mx-auto" style="width: 1280px"></div>
