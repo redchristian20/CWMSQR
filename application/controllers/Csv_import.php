@@ -1,7 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+// Class with three functionalities to import any CSV file.
 class Csv_import extends CI_Controller {
 	
+	// A contstructor that calls the model after it has been created.
 	public function __construct()
 	{
 		parent::__construct();
@@ -9,6 +11,7 @@ class Csv_import extends CI_Controller {
 		$this->load->library('csvimport');
 	}
 
+	// Loading of the data from the CSV file in a table format.
 	function load_data($workshop_id)
 	{
 		$result = $this->csv_import_model->select($workshop_id);
@@ -52,6 +55,7 @@ class Csv_import extends CI_Controller {
 		echo $output;
 	}
 
+	// Generates a QR code for each participant
 	function import($workshop_id)
 	{
 		$file_data = $this->csvimport->get_array($_FILES["csv_file"]["tmp_name"]);

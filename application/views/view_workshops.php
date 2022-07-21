@@ -1,4 +1,3 @@
-
 <h1>Events</h1>
 <?php
         if(isset($workshops)){

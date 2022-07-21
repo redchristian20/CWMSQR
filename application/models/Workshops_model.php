@@ -1,4 +1,5 @@
-<?php
+<?php 
+// Class for Workshop model
 class Workshops_model extends CI_Model
 {
     public $workshop_name;
@@ -13,11 +14,14 @@ class Workshops_model extends CI_Model
     public $created_at;
     public $updated_at;
 
+    // Function that gets Workshops
     public function get_workshops()
     {
         $query = $this->db->get('workshops');
         return $query->result_array();
     }
+
+    // Function that inserts workshop details
     public function insert_workshop($workshop_array)
     {
         $this->workshop_name = $workshop_array['workshop_name'];
@@ -33,6 +37,8 @@ class Workshops_model extends CI_Model
         $this->updated_at = date("Y-m-d, H:i:s");
         $this->db->insert('workshops', $this);
     }
+
+    // Function that update workshop details
     public function update_workshop($workshop_array)
     {
         $this->workshop_name = $workshop_array('workshop_name');
@@ -44,6 +50,7 @@ class Workshops_model extends CI_Model
         $this->db->update('workshops', $this, array('id' => $workshop_array('id')));
     }
 
+    // Function that gets workshop by ID
     public function get_workshop_by_id($workshop_id)
     {
         $query = $this->db->select('*')->where('id', $workshop_id)->get('workshops');
@@ -54,6 +61,7 @@ class Workshops_model extends CI_Model
         }
     }
 
+    // Function that gets workshop by a link
     public function get_workshop_by_link($workshop_link)
     {
         $query = $this->db->select('*')->where('workshop_link', $workshop_link)->get('workshops');

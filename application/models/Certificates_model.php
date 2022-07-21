@@ -1,4 +1,5 @@
 <?php
+// Class that gets the certificates from the database
 class Certificates_model extends CI_Model
 {
     public function get_certificates_by_code($certificate_code)
