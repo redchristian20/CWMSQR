@@ -1,5 +1,6 @@
 <?php
    
+   // Class for participants and models.
     class Participants_model extends CI_Model
     {
         public $id;
