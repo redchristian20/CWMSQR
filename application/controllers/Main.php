@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 
-    public function paren::__construct()
+    public function parent::__construct()
     {
-            parent__construct();
+            parent::__construct();
             $this->load->helper(array('form', 'url'));
             $this->load->model('csv_import_model');
             $this->load->library('csvimport');
