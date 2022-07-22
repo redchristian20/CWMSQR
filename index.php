@@ -312,5 +312,4 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-$throw new Exception(BASEPATH.'core/CodeIgniter.php');
 require_once BASEPATH.'core/CodeIgniter.php';
