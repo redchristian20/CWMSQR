@@ -312,4 +312,4 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-require_once 'system/core/CodeIgniter.php';
+require_once BASEPATH.'system/core/CodeIgniter.php';
