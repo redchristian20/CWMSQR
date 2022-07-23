@@ -68,15 +68,15 @@ class Csv_import extends CI_Controller {
 			$qr = base_url().'show_certificate/'.$participant_code;
 			$qr_link = 'https://chart.googleapis.com/chart?cht=qr&chs='.$size.'&chl='.$qr.'&chco='.$color;
 			$data[] = array(
-				'first_name'		=>	$row["First Name"],
-        		'last_name'			=>	$row["Last Name"],
-        		'phone'				=>	$row["Phone"],
-        		'email'				=>	$row["Email"],
-				'workshop_id'		=>	$workshop_id,
-				'participant_qr'	=> 	$qr_link,
-				'participant_code'	=> 	$participant_code,
-				'created_at' 		=> 	date("Y-m-d, H:i:s"),
-				'updated_at'		=> 	date("Y-m-d, H:i:s")
+				'first_name'	=>	$row["First Name"],
+        		'last_name'		=>	$row["Last Name"],
+        		'phone'			=>	$row["Phone"],
+        		'email'			=>	$row["Email"],
+				'workshop_id'	=>	$workshop_id,
+				'participant_qr'=> 	$qr_link,
+				'participant_code'=> 	$participant_code,
+				'created_at' 	=> 	date("Y-m-d, H:i:s"),
+				'updated_at'	=> 	date("Y-m-d, H:i:s")
 			);
 		}
 		$this->csv_import_model->insert($data);

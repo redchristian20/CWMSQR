@@ -1,6 +1,6 @@
 <div class='container align-items-center'>
 
-    <?php echo form_open_multipart('insert_event');?>
+    <?php echo form_open_multipart('insert_workshop');?>
         <h2>Workshop Event Creation</h2>
         <div class="form-group">
             <input type="file" name="userfile" value="Upload Event Poster" size="20" />
